@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from "react";
+import Title from "./components/Title"
 
 function App() {
   const [showEvents, setShowEvents] =useState(true)
@@ -19,8 +20,12 @@ function App() {
     console.log(id);
   }
 
+  const subtitlestr = "All the latest events in MarioLand"
+
   return (
     <div className="App">
+      <Title Title="Events in your Area" subtitle={subtitlestr}/>
+      <Title Title="another title" subtitle="another"/>
       {showEvents && (
       <div>
           <button onClick={()=>setShowEvents(false)}>hide events</button>
