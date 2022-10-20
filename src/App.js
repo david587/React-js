@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Title from "./components/Title";
 import Modal from './components/Modal';
 import EventList from './components/EventList';
+import NewEventForm from './components/NewEventForm';
 
 function App() {
   const [showModal,setModal] = useState(false)
@@ -52,13 +53,12 @@ function App() {
       
       <br />
       {/* //modal nested */}
-      {showModal && <Modal handleClose={handleClose}>
-        <h2>Terms</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quia beatae iste, reiciendis ipsa distinctio quis expedita quibusdam sapiente pariatur.</p>
+      {showModal && <Modal handleClose={handleClose} isSalesModal={true}>
+        <NewEventForm/>
       </Modal>}
 
       <div>
-      <button onClick={()=>setModal(true)}>Show modal</button>
+      <button onClick={()=>setModal(true)}>Add new Event</button>
       </div>
 
     </div>
