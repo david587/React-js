@@ -9,8 +9,22 @@ export default function NewEventForm() {
     setTitle("")
     setDate("")
    }
+
+   const handleSubmit =(e)=>{
+    //when a form is submited, it refresh the page,e.preventdef->dont refresh the page
+    e.preventDefault()
+
+    const event ={
+        title: title,
+        date: date,
+        //genereate a number between 1 and 1000
+        id: Math.floor(Math.random()*1000)
+    }
+    console.log(event);
+    resetForm()
+   }
   return (
-    <form className="new-event-form">
+    <form className="new-event-form" onSubmit={handleSubmit}>
         <label>
             <span>Event Title:</span>
             <input type="text"  onChange={(e)=>setTitle(e.target.value)}
@@ -24,8 +38,6 @@ export default function NewEventForm() {
             />
         </label>
         <button>Submit</button>
-        <p>title - {title}, date - {date}</p>
-        <p onClick={resetForm}>Reset the form</p>
     </form>
   )
 }
