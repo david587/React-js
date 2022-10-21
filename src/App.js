@@ -8,13 +8,17 @@ import NewEventForm from './components/NewEventForm';
 function App() {
   const [showModal,setModal] = useState(false)
   const [showEvents, setShowEvents] =useState(true)
-  const [events,setEvents] = useState([
-    {title:"mario birthday bash", id: 1},
-    {title:"mario birthday ", id: 2},
-    {title:"mario ", id: 3}
-  ]);
-  
-  console.log(showModal);
+  const [events,setEvents] = useState([]);
+  //átadjuk a beirt adatokat->event
+  const addEvent=(event)=>{
+    setEvents((prevEvents)=>{
+      // console.log("prev:",prevEvents,"  ","event:",event);
+      console.log([...prevEvents, event]);
+      return [...prevEvents, event]
+    })
+    //hogy bezárodjon
+    setModal(false);
+  }
 
   const handleclick =(id)=>{
     setEvents((prevEvents)=>{
@@ -25,9 +29,6 @@ function App() {
     console.log(id);
   }
 
-  const handleClose =() =>{
-    setModal(false)
-  }
 
   const subtitlestr = "All the latest events in MarioLand"
 
@@ -53,8 +54,9 @@ function App() {
       
       <br />
       {/* //modal nested */}
-      {showModal && <Modal handleClose={handleClose} isSalesModal={true}>
-        <NewEventForm/>
+      {showModal && <Modal  isSalesModal={true}>
+        {/* //we pass addevent as a prop */}
+        <NewEventForm addEvent ={addEvent}/>
       </Modal>}
 
       <div>
