@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+<img src="C:\Users\David\Desktop\code\Web\React\ReactApp\my-first-react-app\public\done" alt="drawing" width="400"/>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
